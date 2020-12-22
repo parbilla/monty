@@ -8,7 +8,7 @@
  * Return: none
  */
 
-int structs(char *token1, stack_t **stack, unsigned int linecheck)
+void structs(char *token1, stack_t **stack, unsigned int linecheck)
 {
 	int i = 0;
 	instruction_t op_func[] = {
@@ -27,13 +27,15 @@ int structs(char *token1, stack_t **stack, unsigned int linecheck)
 		};
 
 	if (token1 == NULL)
-		return (0);
+		return;
+	if (token1[0] == '#')
+		return;
 	while (op_func[i].opcode != NULL)
 	{
 		if (strcmp(token1, op_func[i].opcode) == 0)
 		{
 			op_func[i].f(stack, linecheck);
-			return (1);
+			return;
 		}
 		i++;
 	}

@@ -57,10 +57,9 @@ void main_f(char *str)
 			continue;
 		}
 		token2 = strtok(NULL, TOKEN_DELIMITER);
-		/* once token2 exists convert it to int */
 		if (strcmp(token1, "push") == 0)
 			atoi_number(token2, linecheck);
-		structs(token1, &head, linecheck);
+ 		structs(token1, &head, linecheck);
 		linecheck++;
 	}
 	free(line);

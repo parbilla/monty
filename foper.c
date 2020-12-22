@@ -17,6 +17,7 @@ int structs(char *token1, stack_t **stack, unsigned int linecheck)
 		{"pint", pint_f},
 		{"pop", pop_f},
 		{"swap", swap_f},
+		{"add", add_f},
 		{NULL, NULL}
 		};
 

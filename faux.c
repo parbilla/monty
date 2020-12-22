@@ -104,3 +104,28 @@ void swap_f(stack_t **stack, unsigned int line_number)
         (*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = aux;
 }
+
+/**
+ * swap_f - to add node at the beginning
+ * @stack: doble pointer from struct
+ * @number: int to know the number of line from struct
+ * Return: int.
+ */
+
+void add_f(stack_t **stack, unsigned int line_number)
+{
+        stack_t *aux = *stack;
+
+        if ((*stack)->next == NULL || *stack == NULL)
+        {
+                free_list(*stack);
+                printf("L%d: can't add, stack too short", line_number);
+                exit(EXIT_FAILURE);
+        }
+        (*stack)->next->n = (*stack)->next->n + (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	aux->next = NULL;
+	free(aux);
+
+}

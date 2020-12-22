@@ -34,9 +34,9 @@ int structs(char *token1, stack_t **stack, unsigned int linecheck)
 }
 
 /**
- * push_f - to push the lines contained in a file
- * @stack: doble pointer from struct
- * @line_number: int to know the number of line from struct
+ * push_f - to push lines contained in a file.
+ * @stack: double pointer from struct.
+ * @line_number: integer of line number from struct.
  * Return: nothing
  */
 

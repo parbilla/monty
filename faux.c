@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * atoi_number - converts string to integer.
+ * @token2: string.
+ * @linecheck: line number.
+ * Return: always
+ */
+
 void atoi_number(char *token2, unsigned int linecheck)
 {
 	unsigned int i;
@@ -27,7 +34,7 @@ void atoi_number(char *token2, unsigned int linecheck)
 
 /**
  * free_list - function that frees a list.
- * @head: double pointer list.
+ * @head: pointer to list.
  * Return: always.
  */
 
@@ -48,7 +55,7 @@ void free_list(stack_t *head)
 /**
  * add_node - to add node at the beginning
  * @stack: doble pointer from struct
- * @line_number: int to know the number of line from struct
+ * @number: int to know the number of line from struct
  * Return: int.
  */
 
@@ -67,7 +74,7 @@ void *add_node(stack_t **stack, unsigned int number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-    	new->n = number;
+	new->n = number;
 	new->next = *stack;
 	new->prev = NULL;
 	if (*stack != NULL)

@@ -82,3 +82,25 @@ void *add_node(stack_t **stack, unsigned int number)
 	*stack = new;
 	return (new);
 }
+
+/**
+ * swap_f - to add node at the beginning
+ * @stack: doble pointer from struct
+ * @number: int to know the number of line from struct
+ * Return: int.
+ */
+
+void swap_f(stack_t **stack, unsigned int line_number)
+{
+        int aux;
+
+        if ((*stack)->next == NULL || *stack == NULL)
+        {
+                free_list(*stack);
+		printf("L%d: can't swap, stack too short", line_number);
+                exit(EXIT_FAILURE);
+        }
+        aux = (*stack)->n;
+        (*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = aux;
+}

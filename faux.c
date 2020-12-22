@@ -16,7 +16,7 @@ void atoi_number(char *token2, unsigned int linecheck)
 		for (i = 0; token2[i] != 0; i++)
 			if ((token2[i] < 48 && token2[i] != 45) || token2[i] > 57)
 			{
-				fprintf(stderr, "L%d: usage: push integer", linecheck);
+				fprintf(stderr, "L%d: usage: push integer\n", linecheck);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -27,7 +27,7 @@ void atoi_number(char *token2, unsigned int linecheck)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: usage: push integer", linecheck);
+		fprintf(stderr, "L%d: usage: push integer\n", linecheck);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -97,7 +97,7 @@ void swap_f(stack_t **stack, unsigned int line_number)
         if ((*stack)->next == NULL || *stack == NULL)
         {
                 free_list(*stack);
-		printf("L%d: can't swap, stack too short", line_number);
+		printf("L%d: can't swap, stack too short\n", line_number);
                 exit(EXIT_FAILURE);
         }
         aux = (*stack)->n;
@@ -106,8 +106,8 @@ void swap_f(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap_f - to add node at the beginning
- * @stack: doble pointer from struct
+ * add_f - to add node at the beginning
+ * @stack: double pointer from struct
  * @number: int to know the number of line from struct
  * Return: int.
  */
@@ -119,7 +119,7 @@ void add_f(stack_t **stack, unsigned int line_number)
         if ((*stack)->next == NULL || *stack == NULL)
         {
                 free_list(*stack);
-                printf("L%d: can't add, stack too short", line_number);
+                printf("L%d: can't add, stack too short\n", line_number);
                 exit(EXIT_FAILURE);
         }
         (*stack)->next->n = (*stack)->next->n + (*stack)->n;

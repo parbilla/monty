@@ -18,6 +18,11 @@ int structs(char *token1, stack_t **stack, unsigned int linecheck)
 		{"pop", pop_f},
 		{"swap", swap_f},
 		{"add", add_f},
+		{"nop", nop_f},
+		{"sub", sub_f},
+		{"div", div_f},
+		{"mul", mul_f},
+		{"mod", mod_f},
 		{NULL, NULL}
 		};
 
@@ -87,7 +92,7 @@ void pint_f(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't pint, stack empty", line_number);
+		printf("L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -107,7 +112,7 @@ void pop_f(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't pop an empty stack", line_number);
+		printf("L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)

@@ -42,6 +42,7 @@ typedef struct instruction_s
 } instruction_t;
 
 int main(int argc, char *argv[]);
+void main_f(char *str);
 int structs(char *token1, stack_t **stack, unsigned int line_number);
 void push_f(stack_t **stack, unsigned int line_number);
 void pall_f(stack_t **stack, unsigned int line_number);

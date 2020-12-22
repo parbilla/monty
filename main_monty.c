@@ -3,13 +3,30 @@
 int token2_atoi = 0;
 
 /**
- * main - tokenize and executing all functions
+ * main - main
  * @argc: counter of arguments
  * @argv: arguments received from the prompt
  * Return: nothing
  */
 
 int main(int argc, char *argv[])
+{
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	main_f(argv[1]);
+	exit(EXIT_SUCCESS);
+}
+
+/**
+ * main_f - tokenize and executing all functions
+ * @str: arguments received from the prompt
+ * Return: nothing
+ */
+
+void main_f(char *str)
 {
 	FILE *stream;
 	size_t len = 0;
@@ -18,15 +35,10 @@ int main(int argc, char *argv[])
 	stack_t *head = NULL;
 	unsigned int linecheck = 1;
 
-	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	stream = fopen(argv[1], "r");
+	stream = fopen(str, "r");
 	if (stream == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", str);
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, stream)) != -1)
@@ -34,8 +46,10 @@ int main(int argc, char *argv[])
 		while (line[0] == 32 || line[0] == 9)
 			line++;
 		if (line[0] == '\n' || line[0] == '\0')
+		{
 			linecheck++;
 			continue;
+		}
 		token1 = strtok(line, TOKEN_DELIMITER);
 		if (strcmp(token1, "#") == 0)
 		{

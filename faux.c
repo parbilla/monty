@@ -116,7 +116,7 @@ void add_f(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if ((*stack)->next == NULL || *stack == NULL || stack == NULL)
 	{
 		free_list(*stack);
 		printf("L%d: can't add, stack too short\n", line_number);
@@ -125,6 +125,5 @@ void add_f(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n = (*stack)->next->n + (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	aux->next = NULL;
 	free(aux);
 }

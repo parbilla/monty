@@ -1,14 +1,14 @@
 #include "monty.h"
 
 /**
- * structs - to generate an array of structs
+ * select_op - to generate an array of structs
  * @token1: pointer received to the first token of the line
  * @stack: doble pointer from struct
  * @linecheck: int to know the number of every line
  * Return: none
  */
 
-void structs(char *token1, stack_t **stack, unsigned int linecheck)
+void select_op(char *token1, stack_t **stack, unsigned int linecheck)
 {
 	int i = 0;
 	instruction_t op_func[] = {

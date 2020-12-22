@@ -43,7 +43,7 @@ typedef struct instruction_s
 
 int main(int argc, char *argv[]);
 void main_f(char *str);
-void structs(char *token1, stack_t **stack, unsigned int line_number);
+void select_op(char *token1, stack_t **stack, unsigned int line_number);
 void push_f(stack_t **stack, unsigned int line_number);
 void pall_f(stack_t **stack, unsigned int line_number);
 void pint_f(stack_t **stack, unsigned int line_number);

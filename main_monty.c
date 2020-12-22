@@ -41,7 +41,7 @@ void main_f(char *str)
 		fprintf(stderr, "Error: Can't open file %s\n", str);
 		exit(EXIT_FAILURE);
 	}
-	while ((read = getline(&line, &len, stream)) != EOF)
+	while ((read = getline(&line, &len, stream)) != -1)
 	{
 		while (line[0] == 32 || line[0] == 9)
 			line++;
@@ -51,7 +51,7 @@ void main_f(char *str)
 			continue;
 		}
 		token1 = strtok(line, TOKEN_DELIMITER);
-		if (strcmp(token1, "#") == 0)
+		if (token1[0] == '#')
 		{
 			line++;
 			continue;

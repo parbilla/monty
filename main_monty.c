@@ -1,6 +1,6 @@
 #include "monty.h"
 #define TOKEN_DELIMITER " \t\n\r"
-int token2_atoi;
+int token2_atoi = 0;
 
 /**
  * main - tokenize and executing all functions
@@ -12,9 +12,9 @@ int token2_atoi;
 int main(int argc, char *argv[])
 {
 	FILE *stream;
-	size_t len;
+	size_t len = 0;
 	ssize_t read;
-	char *token1, *token2, *line;
+	char *token1 = NULL, *token2 = NULL, *line = NULL;
 	stack_t *head = NULL;
 	unsigned int linecheck = 1;
 

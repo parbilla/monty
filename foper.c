@@ -14,6 +14,7 @@ int structs(char *token1, stack_t **stack, unsigned int linecheck)
 	instruction_t op_func[] = {
 		{"push", push_f},
 		{"pall", pall_f},
+		{"pint", pint_f},
 		{NULL, NULL}
 		};
 
@@ -69,4 +70,22 @@ void pall_f(stack_t **stack, unsigned int line_number)
 		printf("%d\n", h->n);
 		h = h->next;
 	}
+}
+
+/**
+ * pint_f - prints value at the top.
+ * @stack: double pointer to list.
+ * @line_number: line number.
+ * Return: always
+ */
+
+void pint_f(stack_t **stack, unsigned int line_number)
+{
+	(void) line_number;
+	if (stack == NULL)
+	{
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
 }

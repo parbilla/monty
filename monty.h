@@ -45,8 +45,10 @@ int main(int argc, char *argv[]);
 int structs(char *token1, stack_t **stack, unsigned int line_number);
 void push_f(stack_t **stack, unsigned int line_number);
 void pall_f(stack_t **stack, unsigned int line_number);
+void pint_f(stack_t **stack, unsigned int line_number);
 void atoi_number(char *token2, unsigned int line_number);
 void free_list(stack_t *head);
 void *add_node(stack_t **stack, unsigned int line_number);
+
 
 #endif

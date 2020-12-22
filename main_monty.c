@@ -51,11 +51,11 @@ void main_f(char *str)
 			continue;
 		}
 		token1 = strtok(line, TOKEN_DELIMITER);
-		if (token1[0] == '#')
+		/*if (token1[0] == '#')
 		{
 			line++;
 			continue;
-		}
+			}*/
 		token2 = strtok(NULL, TOKEN_DELIMITER);
 		if (strcmp(token1, "push") == 0)
 			atoi_number(token2, linecheck);

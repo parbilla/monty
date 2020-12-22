@@ -15,6 +15,7 @@ int structs(char *token1, stack_t **stack, unsigned int linecheck)
 		{"push", push_f},
 		{"pall", pall_f},
 		{"pint", pint_f},
+		{"pop", pop_f},
 		{NULL, NULL}
 		};
 
@@ -81,11 +82,38 @@ void pall_f(stack_t **stack, unsigned int line_number)
 
 void pint_f(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-	if (stack == NULL)
+	if (*stack == NULL)
 	{
 		free_list(*stack);
+		printf("L%d: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * pop_f - removes the top element.
+ * @stack: double pointer to list.
+ * @line_number: line number.
+ * Return: always
+ */
+
+void pop_f(stack_t **stack, unsigned int line_number)
+{
+	stack_t *h = *stack;
+
+	if (*stack == NULL)
+	{
+		free_list(*stack);
+		printf("L%d: can't pop an empty stack", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->next == NULL)
+		*stack = NULL;
+	else
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+	}
+	free(h);
 }

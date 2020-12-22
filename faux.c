@@ -92,9 +92,9 @@ void *add_node(stack_t **stack, unsigned int number)
 
 void swap_f(stack_t **stack, unsigned int line_number)
 {
-	int aux;
+	int aux = 0;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if ((*stack)->next == NULL || *stack == NULL || stack == NULL)
 	{
 		free_list(*stack);
 		printf("L%d: can't swap, stack too short\n", line_number);

@@ -31,11 +31,17 @@ int main(int argc, char *argv[])
 	}
 	while ((read = getline(&line, &len, stream)) != -1)
 	{
-		while (line[0] == 32)
+		while (line[0] == 32 || line[0] == 9)
 			line++;
 		if (line[0] == '\n' || line[0] == '\0')
+			linecheck++;
 			continue;
 		token1 = strtok(line, TOKEN_DELIMITER);
+		if (strcmp(token1, "#") == 0)
+		{
+			line++;
+			continue;
+		}
 		token2 = strtok(NULL, TOKEN_DELIMITER);
 		/* once token2 exists convert it to int */
 		if (strcmp(token1, "push") == 0)

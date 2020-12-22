@@ -41,7 +41,7 @@ void main_f(char *str)
 		fprintf(stderr, "Error: Can't open file %s\n", str);
 		exit(EXIT_FAILURE);
 	}
-	while ((read = getline(&line, &len, stream)) != -1)
+	while ((read = getline(&line, &len, stream)) != EOF)
 	{
 		while (line[0] == 32 || line[0] == 9)
 			line++;

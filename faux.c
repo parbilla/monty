@@ -84,48 +84,47 @@ void *add_node(stack_t **stack, unsigned int number)
 }
 
 /**
- * swap_f - to add node at the beginning
+ * swap_f - swaps numbers at the beginning
  * @stack: doble pointer from struct
- * @number: int to know the number of line from struct
- * Return: int.
+ * @line_number: int to know the number of line from struct
+ * Return: always
  */
 
 void swap_f(stack_t **stack, unsigned int line_number)
 {
-        int aux;
+	int aux;
 
-        if ((*stack)->next == NULL || *stack == NULL)
-        {
-                free_list(*stack);
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		free_list(*stack);
 		printf("L%d: can't swap, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
-        aux = (*stack)->n;
-        (*stack)->n = (*stack)->next->n;
+		exit(EXIT_FAILURE);
+	}
+	aux = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = aux;
 }
 
 /**
- * add_f - to add node at the beginning
+ * add_f - adds numbers at the beginning
  * @stack: double pointer from struct
- * @number: int to know the number of line from struct
- * Return: int.
+ * @line_number: int to know the number of line from struct
+ * Return: always
  */
 
 void add_f(stack_t **stack, unsigned int line_number)
 {
-        stack_t *aux = *stack;
+	stack_t *aux = *stack;
 
-        if ((*stack)->next == NULL || *stack == NULL)
-        {
-                free_list(*stack);
-                printf("L%d: can't add, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
-        (*stack)->next->n = (*stack)->next->n + (*stack)->n;
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		free_list(*stack);
+		printf("L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = (*stack)->next->n + (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	aux->next = NULL;
 	free(aux);
-
 }

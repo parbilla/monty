@@ -46,25 +46,25 @@ void sub_f(stack_t **stack, unsigned int line_number)
 
 void div_f(stack_t **stack, unsigned int line_number)
 {
-        stack_t *aux = *stack;
+	stack_t *aux = *stack;
 
-        if ((*stack)->next == NULL || *stack == NULL)
-        {
-                free_list(*stack);
-                printf("L%d: can't div, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		free_list(*stack);
+		printf("L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	if ((*stack)->n == 0)
-        {
-                free_list(*stack);
-                printf("L%d: division by zero\n", line_number);
-                exit(EXIT_FAILURE);
-        }
-        (*stack)->next->n = (*stack)->next->n / (*stack)->n;
-        *stack = (*stack)->next;
-        (*stack)->prev = NULL;
-        aux->next = NULL;
-        free(aux);
+	{
+		free_list(*stack);
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	aux->next = NULL;
+	free(aux);
 }
 
 /**
@@ -76,19 +76,19 @@ void div_f(stack_t **stack, unsigned int line_number)
 
 void mul_f(stack_t **stack, unsigned int line_number)
 {
-        stack_t *aux = *stack;
+	stack_t *aux = *stack;
 
-        if ((*stack)->next == NULL || *stack == NULL)
-        {
-                free_list(*stack);
-                printf("L%d: can't mul, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
-        (*stack)->next->n = (*stack)->next->n * (*stack)->n;
-        *stack = (*stack)->next;
-        (*stack)->prev = NULL;
-        aux->next = NULL;
-        free(aux);
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		free_list(*stack);
+		printf("L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	aux->next = NULL;
+	free(aux);
 }
 
 /**
@@ -100,23 +100,23 @@ void mul_f(stack_t **stack, unsigned int line_number)
 
 void mod_f(stack_t **stack, unsigned int line_number)
 {
-        stack_t *aux = *stack;
+	stack_t *aux = *stack;
 
-        if ((*stack)->next == NULL || *stack == NULL)
-        {
-                free_list(*stack);
-                printf("L%d: can't mod, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		free_list(*stack);
+		printf("L%d: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	if ((*stack)->n == 0)
-        {
-                free_list(*stack);
-                printf("L%d: division by zero\n", line_number);
-                exit(EXIT_FAILURE);
-        }
-        (*stack)->next->n = (*stack)->next->n % (*stack)->n;
-        *stack = (*stack)->next;
-        (*stack)->prev = NULL;
-        aux->next = NULL;
-        free(aux);
+	{
+		free_list(*stack);
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n = (*stack)->next->n % (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	aux->next = NULL;
+	free(aux);
 }

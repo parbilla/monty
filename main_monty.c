@@ -59,7 +59,7 @@ void main_f(char *str)
 		token2 = strtok(NULL, TOKEN_DELIMITER);
 		if (strcmp(token1, "push") == 0)
 			atoi_number(token2, linecheck);
- 		structs(token1, &head, linecheck);
+		structs(token1, &head, linecheck);
 		linecheck++;
 	}
 	free(line);

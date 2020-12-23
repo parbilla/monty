@@ -61,7 +61,7 @@ void main_f(char *str)
 		select_op(token1, &head, linecheck);
 		linecheck++;
 	}
-	for(; count > 0; count--)
+	for (; count > 0; count--)
 		line--;
 	free(line);
 	free_list(head);

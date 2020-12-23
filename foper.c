@@ -77,7 +77,7 @@ void pall_f(stack_t **stack, unsigned int line_number)
 	}
 	while (h)
 	{
-		printf("%d\n", h->n);
+		fprintf(stdout, "%d\n", h->n);
 		h = h->next;
 	}
 }
@@ -94,10 +94,10 @@ void pint_f(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->n);
+	fprintf(stdout, "%d\n", (*stack)->n);
 }
 
 /**
@@ -114,7 +114,7 @@ void pop_f(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)

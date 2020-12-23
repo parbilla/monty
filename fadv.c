@@ -56,7 +56,7 @@ void div_f(stack_t **stack, unsigned int line_number)
 	}
 	if ((*stack)->n == 0)
 	{
-		free_list(*stack);
+		/*free_list(*stack);*/
 		printf("L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}

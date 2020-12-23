@@ -97,7 +97,7 @@ void swap_f(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next == NULL || *stack == NULL || stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = (*stack)->n;
@@ -119,7 +119,7 @@ void add_f(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next == NULL || *stack == NULL || stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n + (*stack)->n;

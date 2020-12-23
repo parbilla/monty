@@ -27,13 +27,12 @@ void sub_f(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next == NULL || *stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	aux->next = NULL;
 	free(aux);
 }
 
@@ -57,7 +56,7 @@ void div_f(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 	{
 		/*free_list(*stack);*/
-		printf("L%d: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
@@ -81,7 +80,7 @@ void mul_f(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next == NULL || *stack == NULL)
 	{
 		free_list(*stack);
-		printf("L%d: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
@@ -111,7 +110,7 @@ void mod_f(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 	{
 		/*free_list(*stack);*/
-		printf("L%d: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n % (*stack)->n;

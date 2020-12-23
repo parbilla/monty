@@ -102,15 +102,15 @@ void mod_f(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if ((*stack)->next == NULL || *stack == NULL || stack == NULL)
 	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		free_list(*stack);
-		printf("L%d: can't mod, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)
 	{
-		free_list(*stack);
+		/*free_list(*stack);*/
 		printf("L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}

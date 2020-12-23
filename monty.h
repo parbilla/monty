@@ -55,6 +55,7 @@ void sub_f(stack_t **stack, unsigned int line_number);
 void div_f(stack_t **stack, unsigned int line_number);
 void mul_f(stack_t **stack, unsigned int line_number);
 void mod_f(stack_t **stack, unsigned int line_number);
+void pchar_f(stack_t **stack, unsigned int line_number);
 void atoi_number(char *token2, unsigned int line_number);
 void free_list(stack_t *head);
 void *add_node(stack_t **stack, unsigned int line_number);

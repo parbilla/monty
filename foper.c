@@ -23,6 +23,7 @@ void select_op(char *token1, stack_t **stack, unsigned int linecheck)
 		{"div", div_f},
 		{"mul", mul_f},
 		{"mod", mod_f},
+		{"pchar", pchar_f},
 		{NULL, NULL}
 		};
 

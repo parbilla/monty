@@ -50,7 +50,7 @@ void div_f(stack_t **stack, unsigned int line_number)
 
 	if ((*stack)->next == NULL || *stack == NULL || stack == NULL)
 	{
-		printf("L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}

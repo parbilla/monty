@@ -34,6 +34,7 @@ void main_f(char *str)
 	char *token1 = NULL, *token2 = NULL, *line = NULL;
 	stack_t *head = NULL;
 	unsigned int linecheck = 1;
+	int count = 0;
 
 	stream = fopen(str, "r");
 	if (stream == NULL)
@@ -44,7 +45,10 @@ void main_f(char *str)
 	while ((read = getline(&line, &len, stream)) != -1)
 	{
 		while (line[0] == 32 || line[0] == 9)
+		{
 			line++;
+			count++;
+		}
 		if (line[0] == '\n' || line[0] == '\0')
 		{
 			linecheck++;
@@ -57,6 +61,8 @@ void main_f(char *str)
 		select_op(token1, &head, linecheck);
 		linecheck++;
 	}
+	for(; count > 0; count--)
+		line--;
 	free(line);
 	free_list(head);
 	fclose(stream);

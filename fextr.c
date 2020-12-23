@@ -13,13 +13,13 @@ void pchar_f(stack_t **stack, unsigned int line_number)
 
 	if (aux == NULL)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		free_list(aux);
 		exit(EXIT_FAILURE);
 	}
 	if (aux->n < 0 || aux->n > 127)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free_list(aux);
                 exit(EXIT_FAILURE);
 	}
